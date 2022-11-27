@@ -31,6 +31,7 @@ class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 65;
     }
 
    
@@ -42,11 +43,15 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableView");
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath);
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell;
         let item = itemStore.allItems[indexPath.row];
         
-        cell.textLabel?.text = item.question;
-        cell.detailTextLabel?.text = item.answer;
+//        cell.textLabel?.text = item.question;
+//        cell.detailTextLabel?.text = item.answer;
+        
+        cell.questionLabel.text = item.question;
+        cell.selectionLabel.text = item.selection;
+        cell.answerLabel.text = item.answer;
 
         return cell
     }
@@ -63,6 +68,17 @@ class TableViewController: UITableViewController {
         itemStore.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showItem":
+            if let row = tableView.indexPathForSelectedRow?.row {
+                let item = itemStore.allItems[row];
+                let detailViewController = segue.destination as! DetailViewController;
+                detailViewController.item = item;
+            }
+        default:
+            preconditionFailure("Unexpected segue identifier");
+        }
+    }
     
 }
