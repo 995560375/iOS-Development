@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A32B55322931DD8400AEFC25 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B55312931DD8400AEFC25 /* TableViewController.swift */; };
+		A32B55342931E07E00AEFC25 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B55332931E07E00AEFC25 /* Item.swift */; };
+		A32B55362931E29400AEFC25 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B55352931E29400AEFC25 /* ItemStore.swift */; };
 		A37F76A929275C0E0044EB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37F76A829275C0E0044EB9C /* AppDelegate.swift */; };
 		A37F76AB29275C0E0044EB9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37F76AA29275C0E0044EB9C /* SceneDelegate.swift */; };
 		A37F76AD29275C0E0044EB9C /* NumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37F76AC29275C0E0044EB9C /* NumViewController.swift */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A32B55312931DD8400AEFC25 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		A32B55332931E07E00AEFC25 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A32B55352931E29400AEFC25 /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		A37F76A529275C0E0044EB9C /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37F76A829275C0E0044EB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A37F76AA29275C0E0044EB9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,10 +114,13 @@
 				A37F76AC29275C0E0044EB9C /* NumViewController.swift */,
 				A387103B2929AE8000EF554D /* MultipleViewController.swift */,
 				A387103D2929AE9300EF554D /* ScoreViewController.swift */,
+				A32B55312931DD8400AEFC25 /* TableViewController.swift */,
 				A37F76AE29275C0E0044EB9C /* Main.storyboard */,
 				A37F76B129275C100044EB9C /* Assets.xcassets */,
 				A37F76B329275C100044EB9C /* LaunchScreen.storyboard */,
 				A37F76B629275C100044EB9C /* Info.plist */,
+				A32B55332931E07E00AEFC25 /* Item.swift */,
+				A32B55352931E29400AEFC25 /* ItemStore.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -265,9 +274,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A37F76AD29275C0E0044EB9C /* NumViewController.swift in Sources */,
+				A32B55322931DD8400AEFC25 /* TableViewController.swift in Sources */,
 				A37F76A929275C0E0044EB9C /* AppDelegate.swift in Sources */,
 				A387103E2929AE9300EF554D /* ScoreViewController.swift in Sources */,
+				A32B55342931E07E00AEFC25 /* Item.swift in Sources */,
 				A387103C2929AE8000EF554D /* MultipleViewController.swift in Sources */,
+				A32B55362931E29400AEFC25 /* ItemStore.swift in Sources */,
 				A37F76AB29275C0E0044EB9C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

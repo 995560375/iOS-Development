@@ -11,13 +11,15 @@ import UIKit
 class ScoreViewController: UIViewController {
     
     @IBOutlet var correctLabel: UILabel!
-    public var correct = 0;
+    public var correct = "";
     @IBOutlet var wrongLabel: UILabel!
-    var wrong = 0;
+    var wrong = "";
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        correctLabel.text = "\(correct)";
-        wrongLabel.text = "\(wrong)";
+//        correctLabel.text = "\(correct)";
+//        wrongLabel.text = "\(wrong)";
+        
+        print(correct);
     }
 }

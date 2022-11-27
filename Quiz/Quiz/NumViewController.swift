@@ -64,12 +64,10 @@ class NumViewController: UIViewController {
     }
     
     @IBAction func submit(_sender: UIButton) {
-//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "ScoreViewController") as? ScoreViewController else {return}
-//        vc.correct = 1;
-//        print(vc.correct);
-//        print(vc.wrong);
-//        self.navigationController?.pushViewController(vc, animated: true);
-        
+        let resVC = ScoreViewController();
+        resVC.correct = "111111111111111111";
+//        self.present(resVC, animated: true, completion: nil);
+ 
         if answer == answers[currentQuestionIndex] {
             correctOrNot.text = "Correct";
             correctOrNot.textColor = UIColor.green;
