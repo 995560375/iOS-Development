@@ -10,7 +10,7 @@ import UIKit
 class TableViewController: UITableViewController {
     
     var itemStore: ItemStore!;
-    @IBAction func addNewItem(_ sender: UIButton) {
+    @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         let newItem = itemStore.createItem();
         
         if let index = itemStore.allItems.firstIndex(of: newItem) {
@@ -18,20 +18,27 @@ class TableViewController: UITableViewController {
             tableView.insertRows(at: [indexPath], with: .automatic);
         }
     }
-    @IBAction func toggleEditingMode(_ sender: UIButton) {
-        if isEditing {
-            sender.setTitle("Edit", for: .normal);
-            setEditing(false, animated: true);
-        } else {
-            sender.setTitle("Done", for: .normal);
-            setEditing(true, animated: true);
-        }
-    }
+//    @IBAction func toggleEditingMode(_ sender: UIButton) {
+//        if isEditing {
+//            sender.setTitle("Edit", for: .normal);
+//            setEditing(false, animated: true);
+//        } else {
+//            sender.setTitle("Done", for: .normal);
+//            setEditing(true, animated: true);
+//        }
+//    }
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 65;
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder);
+        
+        navigationItem.leftBarButtonItem = editButtonItem;
     }
 
    
@@ -79,6 +86,12 @@ class TableViewController: UITableViewController {
         default:
             preconditionFailure("Unexpected segue identifier");
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
     
 }

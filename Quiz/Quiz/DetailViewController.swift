@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var answerField: UITextField!
@@ -16,6 +16,12 @@ class DetailViewController: UIViewController {
     
     var item: Item!
     
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        answerField.resignFirstResponder();
+        selectionField.resignFirstResponder();
+        questionField.resignFirstResponder();
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -23,5 +29,18 @@ class DetailViewController: UIViewController {
         selectionField.text = item.selection;
         answerField.text = item.answer;
         dateLabel.text = "\(item.dateCreated)"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        item.question = questionField.text ?? ""
+        item.selection = selectionField.text ?? ""
+        item.answer = answerField.text ?? ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
     }
 }
