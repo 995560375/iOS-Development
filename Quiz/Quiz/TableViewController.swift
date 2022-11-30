@@ -10,6 +10,7 @@ import UIKit
 class TableViewController: UITableViewController {
     
     var itemStore: ItemStore!;
+    var imageStore: ImageStore!
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         let newItem = itemStore.createItem();
         
@@ -67,6 +68,7 @@ class TableViewController: UITableViewController {
         if editingStyle == .delete {
             let item = itemStore.allItems[indexPath.row];
             itemStore.removeItem(item);
+            imageStore.deleteImage(forKey: item.itemKey)
             tableView.deleteRows(at: [indexPath], with: .automatic);
         }
     }
@@ -82,6 +84,7 @@ class TableViewController: UITableViewController {
                 let item = itemStore.allItems[row];
                 let detailViewController = segue.destination as! DetailViewController;
                 detailViewController.item = item;
+                detailViewController.imageStore = imageStore
             }
         default:
             preconditionFailure("Unexpected segue identifier");

@@ -15,6 +15,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBOutlet var questionField: UITextField!
     
     @IBOutlet var imageView: UIImageView!
+    var imageStore: ImageStore!
     @IBAction func choosePhotoSource(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alertController.modalPresentationStyle = .popover
@@ -58,6 +59,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         selectionField.text = item.selection;
         answerField.text = item.answer;
         dateLabel.text = "\(item.dateCreated)"
+        
+        let key = item.itemKey
+        // If there is an associated image with the item, display it on the image view
+        let imageToDisplay = imageStore.image(forKey: key)
+        imageView.image = imageToDisplay
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -78,5 +84,14 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         imagePicker.sourceType = sourceType
         imagePicker.delegate = self
         return imagePicker
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.originalImage] as! UIImage
+        imageStore.setImage(image, forKey: item.itemKey)
+        imageView.image = image
+        dismiss(animated: true, completion: nil)
+        print("photo was saved")
+        print(imageView)
     }
 }

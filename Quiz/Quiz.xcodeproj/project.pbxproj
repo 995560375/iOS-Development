@@ -12,6 +12,7 @@
 		A32B55362931E29400AEFC25 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B55352931E29400AEFC25 /* ItemStore.swift */; };
 		A32B55382932F73C00AEFC25 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B55372932F73C00AEFC25 /* ItemCell.swift */; };
 		A32B553A2933327300AEFC25 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B55392933327300AEFC25 /* DetailViewController.swift */; };
+		A32B553C2937462600AEFC25 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B553B2937462600AEFC25 /* ImageStore.swift */; };
 		A37F76A929275C0E0044EB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37F76A829275C0E0044EB9C /* AppDelegate.swift */; };
 		A37F76AB29275C0E0044EB9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37F76AA29275C0E0044EB9C /* SceneDelegate.swift */; };
 		A37F76AD29275C0E0044EB9C /* NumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37F76AC29275C0E0044EB9C /* NumViewController.swift */; };
@@ -48,6 +49,7 @@
 		A32B55352931E29400AEFC25 /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		A32B55372932F73C00AEFC25 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		A32B55392933327300AEFC25 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A32B553B2937462600AEFC25 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		A37F76A529275C0E0044EB9C /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37F76A829275C0E0044EB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A37F76AA29275C0E0044EB9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				A32B55352931E29400AEFC25 /* ItemStore.swift */,
 				A32B55372932F73C00AEFC25 /* ItemCell.swift */,
 				A32B55392933327300AEFC25 /* DetailViewController.swift */,
+				A32B553B2937462600AEFC25 /* ImageStore.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A32B553C2937462600AEFC25 /* ImageStore.swift in Sources */,
 				A37F76AD29275C0E0044EB9C /* NumViewController.swift in Sources */,
 				A32B55322931DD8400AEFC25 /* TableViewController.swift in Sources */,
 				A37F76A929275C0E0044EB9C /* AppDelegate.swift in Sources */,
@@ -467,6 +471,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quiz/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -494,6 +499,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quiz/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
