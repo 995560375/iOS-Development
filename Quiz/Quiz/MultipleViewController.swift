@@ -73,10 +73,12 @@ class MultipleViewController: UIViewController {
         if answer == answers[currentQuestionIndex] {
             correctOrNot.text = "Correct";
             correctOrNot.textColor = UIColor.green;
+            ShareScore.shareInstance.correct += 1;
             print("correct");
         } else {
             correctOrNot.text = "Wrong"
             correctOrNot.textColor = UIColor.red;
+            ShareScore.shareInstance.wrong += 1;
             print("wrong");
         }
         

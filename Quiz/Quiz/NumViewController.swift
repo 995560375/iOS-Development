@@ -17,6 +17,8 @@ class NumViewController: UIViewController {
     @IBOutlet var correctOrNot: UILabel!;
     var answer: Double = 0;
     var itemStore: ItemStore!
+    var imageStore: ImageStore!
+    @IBOutlet var imageView: UIImageView!
     
     
     
@@ -39,7 +41,10 @@ class NumViewController: UIViewController {
         correctOrNot.text = "";
         let tabbar = tabBarController as! TapBarViewController
         itemStore = tabbar.itemStore
+        imageStore = tabbar.imageStore
         questionLabel.text = itemStore.allItems[currentQuestionIndex].question
+        let key = itemStore.allItems[currentQuestionIndex].itemKey
+        imageView.image = imageStore.image(forKey: key)
     }
     
     @IBAction func showNextQuestion(_sender: UIButton) {
@@ -51,6 +56,8 @@ class NumViewController: UIViewController {
         }
 //        let question: String = questions[currentQuestionIndex];
         let question: String = itemStore.allItems[currentQuestionIndex].question
+        let key = itemStore.allItems[currentQuestionIndex].itemKey
+        imageView.image = imageStore.image(forKey: key)
         questionLabel.text = question;
         answerLabel.text = "???";
     }
@@ -75,10 +82,12 @@ class NumViewController: UIViewController {
         if answer == Double(answerString) {
             correctOrNot.text = "Correct";
             correctOrNot.textColor = UIColor.green;
+            ShareScore.shareInstance.correct += 1;
             print("correct");
         } else {
             correctOrNot.text = "Wrong"
             correctOrNot.textColor = UIColor.red;
+            ShareScore.shareInstance.wrong += 1;
             print("wrong");
         }
         

@@ -16,6 +16,7 @@
 		A32B553E293882E600AEFC25 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B553D293882E600AEFC25 /* Line.swift */; };
 		A32B55402938836700AEFC25 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B553F2938836700AEFC25 /* DrawView.swift */; };
 		A32B554229399B8900AEFC25 /* TapBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B554129399B8900AEFC25 /* TapBarViewController.swift */; };
+		A32B55442939BB6400AEFC25 /* ShareScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B55432939BB6400AEFC25 /* ShareScore.swift */; };
 		A37F76A929275C0E0044EB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37F76A829275C0E0044EB9C /* AppDelegate.swift */; };
 		A37F76AB29275C0E0044EB9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37F76AA29275C0E0044EB9C /* SceneDelegate.swift */; };
 		A37F76AD29275C0E0044EB9C /* NumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37F76AC29275C0E0044EB9C /* NumViewController.swift */; };
@@ -56,6 +57,7 @@
 		A32B553D293882E600AEFC25 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		A32B553F2938836700AEFC25 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		A32B554129399B8900AEFC25 /* TapBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarViewController.swift; sourceTree = "<group>"; };
+		A32B55432939BB6400AEFC25 /* ShareScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareScore.swift; sourceTree = "<group>"; };
 		A37F76A529275C0E0044EB9C /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37F76A829275C0E0044EB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A37F76AA29275C0E0044EB9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				A32B553D293882E600AEFC25 /* Line.swift */,
 				A32B553F2938836700AEFC25 /* DrawView.swift */,
 				A32B554129399B8900AEFC25 /* TapBarViewController.swift */,
+				A32B55432939BB6400AEFC25 /* ShareScore.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				A32B55342931E07E00AEFC25 /* Item.swift in Sources */,
 				A387103C2929AE8000EF554D /* MultipleViewController.swift in Sources */,
 				A32B55382932F73C00AEFC25 /* ItemCell.swift in Sources */,
+				A32B55442939BB6400AEFC25 /* ShareScore.swift in Sources */,
 				A32B55402938836700AEFC25 /* DrawView.swift in Sources */,
 				A32B553A2933327300AEFC25 /* DetailViewController.swift in Sources */,
 				A32B553E293882E600AEFC25 /* Line.swift in Sources */,

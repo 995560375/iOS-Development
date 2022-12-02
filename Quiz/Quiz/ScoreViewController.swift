@@ -17,9 +17,24 @@ class ScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        let correctNum = ShareScore.shareInstance.correct
+        let wrongNum = ShareScore.shareInstance.wrong
+        correctLabel.text = String(correctNum)
+        wrongLabel.text = String(wrongNum)
+        if correctNum > wrongNum {
+            self.view.backgroundColor = UIColor.green
+        } else if correctNum < wrongNum {
+            self.view.backgroundColor = UIColor.red
+        } else {
+            self.view.backgroundColor = UIColor.white
+        }
 //        correctLabel.text = "\(correct)";
 //        wrongLabel.text = "\(wrong)";
         
-        print(correct);
+    }
+    
+    
+    @IBAction func refreshScore(_ sender: Any) {
+        viewDidLoad()
     }
 }
