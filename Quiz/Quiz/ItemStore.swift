@@ -16,7 +16,7 @@ class ItemStore {
     }()
     
     @discardableResult func createItem() -> Item {
-        let newItem = Item(question: "123", selection: "123", answer: "123");
+        let newItem = Item(question: "???", selection: "???", answer: "???");
         allItems.append(newItem);
         return newItem;
     }

@@ -108,11 +108,24 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
             selectedLineIndex = indexOfLine(at: point)
             if selectedLineIndex != nil {
                 currentLines.removeAll()
+                
+            } else {
+                print("nothing")
+                let menu = UIMenuController.shared
+                becomeFirstResponder()
+                let redColor = UIMenuItem(title: "Red", action: #selector(DrawView.turnRed(_:)))
+                let blueColor = UIMenuItem(title: "Blue", action: #selector(DrawView.turnBlue(_:)))
+                let greenColor = UIMenuItem(title: "Green", action: #selector(DrawView.turnGreen(_:)))
+                let grayColor = UIMenuItem(title: "Gray", action: #selector(DrawView.turnGray(_:)))
+                menu.menuItems = [redColor, blueColor, greenColor, grayColor]
+                let targetRect = CGRect(x: point.x, y: point.y, width: 2, height: 2)
+                menu.setTargetRect(targetRect, in: self)
+                menu.setMenuVisible(true, animated: true)
+                
             }
         } else if gestureRecognizer.state == .ended {
             selectedLineIndex = nil
         }
-        setNeedsDisplay()
     }
     
     @objc func tap(_ gestureRecognizer: UITapGestureRecognizer) {
@@ -124,7 +137,12 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         if selectedLineIndex != nil {
             becomeFirstResponder()
             let deleteItem = UIMenuItem(title: "Delete", action: #selector(DrawView.deleteLine(_:)))
-            menu.menuItems = [deleteItem]
+            let redColor = UIMenuItem(title: "Red", action: #selector(DrawView.turnRed(_:)))
+            let blueColor = UIMenuItem(title: "Blue", action: #selector(DrawView.turnBlue(_:)))
+            let greenColor = UIMenuItem(title: "Green", action: #selector(DrawView.turnGreen(_:)))
+            let grayColor = UIMenuItem(title: "Gray", action: #selector(DrawView.turnGray(_:)))
+            menu.menuItems = [deleteItem, redColor, blueColor, greenColor, grayColor]
+//            menu.menuItems = [redColor]
             let targetRect = CGRect(x: point.x, y: point.y, width: 2, height: 2)
             menu.setTargetRect(targetRect, in: self)
             menu.setMenuVisible(true, animated: true)
@@ -144,6 +162,19 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
             selectedLineIndex = nil
             setNeedsDisplay()
         }
+    }
+    
+    @objc func turnRed(_ sender: UIMenuController) {
+        print("Red")
+    }
+    @objc func turnBlue(_ sender: UIMenuController) {
+        print("Blue")
+    }
+    @objc func turnGreen(_ sender: UIMenuController) {
+        print("Green")
+    }
+    @objc func turnGray(_ sender: UIMenuController) {
+        print("Gray")
     }
     
     override func draw(_ rect: CGRect) {
