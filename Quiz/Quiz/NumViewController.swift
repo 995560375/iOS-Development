@@ -16,6 +16,9 @@ class NumViewController: UIViewController {
     @IBOutlet var textField: UITextField!;
     @IBOutlet var correctOrNot: UILabel!;
     var answer: Double = 0;
+    var itemStore: ItemStore!
+    
+    
     
     
     let questions: [String] = [
@@ -32,8 +35,11 @@ class NumViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        questionLabel.text = questions[currentQuestionIndex];
+//        questionLabel.text = questions[currentQuestionIndex];
         correctOrNot.text = "";
+        let tabbar = tabBarController as! TapBarViewController
+        itemStore = tabbar.itemStore
+        questionLabel.text = itemStore.allItems[currentQuestionIndex].question
     }
     
     @IBAction func showNextQuestion(_sender: UIButton) {
@@ -43,14 +49,15 @@ class NumViewController: UIViewController {
         if currentQuestionIndex == questions.count {
             currentQuestionIndex = 0;
         }
-        let question: String = questions[currentQuestionIndex];
+//        let question: String = questions[currentQuestionIndex];
+        let question: String = itemStore.allItems[currentQuestionIndex].question
         questionLabel.text = question;
         answerLabel.text = "???";
     }
     
     @IBAction func showAnswer(_sender: UIButton) {
-        let answer: Double = answers[currentQuestionIndex];
-        answerLabel.text = String(answer);
+        let answerString = itemStore.allItems[currentQuestionIndex].answer
+        answerLabel.text = answerString
     }
     
     @IBAction func changeAnswer(_textField: UITextField) {
@@ -64,11 +71,8 @@ class NumViewController: UIViewController {
     }
     
     @IBAction func submit(_sender: UIButton) {
-        let resVC = ScoreViewController();
-        resVC.correct = "111111111111111111";
-//        self.present(resVC, animated: true, completion: nil);
- 
-        if answer == answers[currentQuestionIndex] {
+        let answerString = itemStore.allItems[currentQuestionIndex].answer
+        if answer == Double(answerString) {
             correctOrNot.text = "Correct";
             correctOrNot.textColor = UIColor.green;
             print("correct");

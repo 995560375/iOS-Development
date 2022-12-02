@@ -34,6 +34,9 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 65;
+        let tabbar = tabBarController as! TapBarViewController
+        itemStore = tabbar.itemStore
+        imageStore = tabbar.imageStore
     }
     
     required init?(coder aDecoder: NSCoder) {

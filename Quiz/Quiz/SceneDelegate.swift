@@ -20,11 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let itemStore = ItemStore();
         let imageStore = ImageStore();
-//        let itemsController = window!.rootViewController as! TableViewController;
-        let navController = window!.rootViewController as! UINavigationController;
-        let itemsController = navController.topViewController as! TableViewController;
-        itemsController.itemStore = itemStore;
-        itemsController.imageStore = imageStore;
+//        let navController = window!.rootViewController as! UINavigationController;
+//        let itemsController = navController.topViewController as! TableViewController;
+//        itemsController.itemStore = itemStore;
+//        itemsController.imageStore = imageStore;
+        let tapBarController = window!.rootViewController as! TapBarViewController
+        tapBarController.itemStore = itemStore;
+        tapBarController.imageStore = imageStore
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
