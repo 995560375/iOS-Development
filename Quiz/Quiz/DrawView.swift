@@ -12,11 +12,12 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
 //    var currentLine: Line?
     var currentLines = [NSValue:Line]()
     var finishedLines = [Line]()
+    var curColor = UIColor.black
     var selectedLineIndex: Int? {
         didSet {
             if selectedLineIndex == nil {
-                let menu = UIMenuController.shared
-                menu.setMenuVisible(false, animated: true)
+//                let menu = UIMenuController.shared
+//                menu.setMenuVisible(false, animated: true)
             }
         }
     }
@@ -113,10 +114,10 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
                 print("nothing")
                 let menu = UIMenuController.shared
                 becomeFirstResponder()
-                let redColor = UIMenuItem(title: "Red", action: #selector(DrawView.turnRed(_:)))
-                let blueColor = UIMenuItem(title: "Blue", action: #selector(DrawView.turnBlue(_:)))
-                let greenColor = UIMenuItem(title: "Green", action: #selector(DrawView.turnGreen(_:)))
-                let grayColor = UIMenuItem(title: "Gray", action: #selector(DrawView.turnGray(_:)))
+                let redColor = UIMenuItem(title: "Red", action: #selector(DrawView.penRed(_:)))
+                let blueColor = UIMenuItem(title: "Blue", action: #selector(DrawView.penBlue(_:)))
+                let greenColor = UIMenuItem(title: "Green", action: #selector(DrawView.penGreen(_:)))
+                let grayColor = UIMenuItem(title: "Gray", action: #selector(DrawView.penGray(_:)))
                 menu.menuItems = [redColor, blueColor, greenColor, grayColor]
                 let targetRect = CGRect(x: point.x, y: point.y, width: 2, height: 2)
                 menu.setTargetRect(targetRect, in: self)
@@ -166,21 +167,49 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
     
     @objc func turnRed(_ sender: UIMenuController) {
         print("Red")
+        if let index = selectedLineIndex {
+            finishedLines[index].color = UIColor.red
+        }
     }
     @objc func turnBlue(_ sender: UIMenuController) {
         print("Blue")
+        if let index = selectedLineIndex {
+            finishedLines[index].color = UIColor.blue
+        }
     }
     @objc func turnGreen(_ sender: UIMenuController) {
         print("Green")
+        if let index = selectedLineIndex {
+            finishedLines[index].color = UIColor.green
+        }
     }
     @objc func turnGray(_ sender: UIMenuController) {
         print("Gray")
+        if let index = selectedLineIndex {
+            finishedLines[index].color = UIColor.gray
+        }
+    }
+    @objc func penRed(_ sender: UIMenuController) {
+        print("penRed")
+        curColor = UIColor.red
+    }
+    @objc func penBlue(_ sender: UIMenuController) {
+        print("penBlue")
+        curColor = UIColor.blue
+    }
+    @objc func penGray(_ sender: UIMenuController) {
+        print("penGray")
+        curColor = UIColor.gray
+    }
+    @objc func penGreen(_ sender: UIMenuController) {
+        print("penGreen")
+        curColor = UIColor.green
     }
     
     override func draw(_ rect: CGRect) {
 //        UIColor.black.setStroke()
-        finishedLineColor.setStroke()
         for line in finishedLines {
+            line.color.setStroke()
             stroke(line)
         }
         
@@ -226,7 +255,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         print(#function)
         for touch in touches {
             let location = touch.location(in: self)
-            let newLine = Line(begin: location, end: location)
+            let newLine = Line(begin: location, end: location, color: curColor)
             let key = NSValue(nonretainedObject: touch)
             currentLines[key] = newLine
         }
